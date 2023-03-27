@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image{
+            height: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- <img src="./img1.png" alt="" class="image"> -->
+    <div id="data">25</div>
+
+    <script>
+        $(document).ready(function(){
+            let element = document.getElementById('data');
+            $.post(
+                "http://127.0.0.1:3000/data",
+                function(result){
+                    element.innerText = result[0];
+                }
+            )
+        })
+    </script>
+</body>
+</html>
